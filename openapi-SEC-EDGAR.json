@@ -3,11 +3,12 @@
   "info": {  
     "title": "SEC EDGAR APIs",  
     "description": "APIs delivering JSON-formatted data from SEC EDGAR filings.",  
-    "version": "1.0.0",  
+    "version": "1.1.0",  
     "license": {  
       "name": "MIT",  
       "url": "https://opensource.org/licenses/MIT"  
-    }  
+    },  
+    "termsOfService": "https://www.sec.gov/internet_security_policy"  
   },  
   "servers": [  
     {  
@@ -46,9 +47,26 @@
         "headers": {  
           "User-Agent": {  
             "description": "Declare your user agent in the request headers.",  
+            "required": true,  
             "schema": {  
               "type": "string",  
               "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          },  
+          "Accept-Encoding": {  
+            "description": "Specify accepted encodings.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "gzip, deflate"  
+            }  
+          },  
+          "Host": {  
+            "description": "Host header for the request.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "www.sec.gov"  
             }  
           }  
         }  
@@ -105,9 +123,26 @@
         "headers": {  
           "User-Agent": {  
             "description": "Declare your user agent in the request headers.",  
+            "required": true,  
             "schema": {  
               "type": "string",  
               "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          },  
+          "Accept-Encoding": {  
+            "description": "Specify accepted encodings.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "gzip, deflate"  
+            }  
+          },  
+          "Host": {  
+            "description": "Host header for the request.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "www.sec.gov"  
             }  
           }  
         }  
@@ -144,9 +179,26 @@
         "headers": {  
           "User-Agent": {  
             "description": "Declare your user agent in the request headers.",  
+            "required": true,  
             "schema": {  
               "type": "string",  
               "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          },  
+          "Accept-Encoding": {  
+            "description": "Specify accepted encodings.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "gzip, deflate"  
+            }  
+          },  
+          "Host": {  
+            "description": "Host header for the request.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "www.sec.gov"  
             }  
           }  
         }  
@@ -213,9 +265,26 @@
         "headers": {  
           "User-Agent": {  
             "description": "Declare your user agent in the request headers.",  
+            "required": true,  
             "schema": {  
               "type": "string",  
               "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          },  
+          "Accept-Encoding": {  
+            "description": "Specify accepted encodings.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "gzip, deflate"  
+            }  
+          },  
+          "Host": {  
+            "description": "Host header for the request.",  
+            "required": true,  
+            "schema": {  
+              "type": "string",  
+              "example": "www.sec.gov"  
             }  
           }  
         }  
@@ -228,5 +297,11 @@
   "x-rateLimit": {  
     "description": "The maximum access rate is 10 requests per second.",  
     "value": 10  
+  },  
+  "x-businessHours": {  
+    "description": "EDGAR accepts new filer applications, new filings, and changes to filer data each business day, Monday through Friday, from 6:00 a.m. to 10:00 p.m., ET."  
+  },  
+  "x-dataAvailability": {  
+    "description": "EDGAR data is available from 1994/1995 onwards. Paper copies of filing documents prior to 1994 may be available by filing a Freedom of Information Act request."  
   }  
 }  
