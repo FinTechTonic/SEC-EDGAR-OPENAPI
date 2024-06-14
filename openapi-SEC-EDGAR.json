@@ -1,0 +1,192 @@
+{  
+  "openapi": "3.0.0",  
+  "info": {  
+    "title": "SEC EDGAR APIs",  
+    "description": "APIs delivering JSON-formatted data from SEC EDGAR filings.",  
+    "version": "1.0.0",  
+    "license": {  
+      "name": "MIT",  
+      "url": "https://opensource.org/licenses/MIT"  
+    }  
+  },  
+  "servers": [  
+    {  
+      "url": "https://data.sec.gov"  
+    }  
+  ],  
+  "paths": {  
+    "/submissions/{CIK}.json": {  
+      "get": {  
+        "summary": "Get submission history by filer",  
+        "description": "Fetches the submission history for a given entity using its Central Index Key (CIK).",  
+        "parameters": [  
+          {  
+            "name": "CIK",  
+            "in": "path",  
+            "required": true,  
+            "description": "Central Index Key of the entity.",  
+            "schema": {  
+              "type": "string",  
+              "example": "0000320193"  
+            }  
+          }  
+        ],  
+        "responses": {  
+          "200": {  
+            "description": "JSON structure containing the entity's submission history.",  
+            "content": {  
+              "application/json": {  
+                "schema": {  
+                  "type": "object"  
+                }  
+              }  
+            }  
+          }  
+        }  
+      }  
+    },  
+    "/api/xbrl/companyconcept/{CIK}/{taxonomy}/{tag}.json": {  
+      "get": {  
+        "summary": "Get XBRL disclosures for a single company and concept",  
+        "description": "Returns all XBRL disclosures from a single company and concept into a single JSON file.",  
+        "parameters": [  
+          {  
+            "name": "CIK",  
+            "in": "path",  
+            "required": true,  
+            "description": "Central Index Key of the company.",  
+            "schema": {  
+              "type": "string",  
+              "example": "0000320193"  
+            }  
+          },  
+          {  
+            "name": "taxonomy",  
+            "in": "path",  
+            "required": true,  
+            "description": "Taxonomy used for the disclosure (e.g., us-gaap, ifrs-full).",  
+            "schema": {  
+              "type": "string",  
+              "example": "us-gaap"  
+            }  
+          },  
+          {  
+            "name": "tag",  
+            "in": "path",  
+            "required": true,  
+            "description": "Tag used in the taxonomy (e.g., AccountsPayableCurrent).",  
+            "schema": {  
+              "type": "string",  
+              "example": "AccountsPayableCurrent"  
+            }  
+          }  
+        ],  
+        "responses": {  
+          "200": {  
+            "description": "JSON structure containing the XBRL disclosures.",  
+            "content": {  
+              "application/json": {  
+                "schema": {  
+                  "type": "object"  
+                }  
+              }  
+            }  
+          }  
+        }  
+      }  
+    },  
+    "/api/xbrl/companyfacts/{CIK}.json": {  
+      "get": {  
+        "summary": "Get all company concepts data for a company",  
+        "description": "Returns all the company concepts data for a company into a single API call.",  
+        "parameters": [  
+          {  
+            "name": "CIK",  
+            "in": "path",  
+            "required": true,  
+            "description": "Central Index Key of the company.",  
+            "schema": {  
+              "type": "string",  
+              "example": "0000320193"  
+            }  
+          }  
+        ],  
+        "responses": {  
+          "200": {  
+            "description": "JSON structure containing all the company concepts data.",  
+            "content": {  
+              "application/json": {  
+                "schema": {  
+                  "type": "object"  
+                }  
+              }  
+            }  
+          }  
+        }  
+      }  
+    },  
+    "/api/xbrl/frames/{taxonomy}/{tag}/{units}/{period}.json": {  
+      "get": {  
+        "summary": "Get XBRL frames data",  
+        "description": "Aggregates one fact for each reporting entity that most closely fits the requested calendrical period.",  
+        "parameters": [  
+          {  
+            "name": "taxonomy",  
+            "in": "path",  
+            "required": true,  
+            "description": "Taxonomy used for the disclosure (e.g., us-gaap, ifrs-full).",  
+            "schema": {  
+              "type": "string",  
+              "example": "us-gaap"  
+            }  
+          },  
+          {  
+            "name": "tag",  
+            "in": "path",  
+            "required": true,  
+            "description": "Tag used in the taxonomy (e.g., AccountsPayableCurrent).",  
+            "schema": {  
+              "type": "string",  
+              "example": "AccountsPayableCurrent"  
+            }  
+          },  
+          {  
+            "name": "units",  
+            "in": "path",  
+            "required": true,  
+            "description": "Units of measure for the disclosure (e.g., USD).",  
+            "schema": {  
+              "type": "string",  
+              "example": "USD"  
+            }  
+          },  
+          {  
+            "name": "period",  
+            "in": "path",  
+            "required": true,  
+            "description": "Period for the disclosure (e.g., CY2019Q1).",  
+            "schema": {  
+              "type": "string",  
+              "example": "CY2019Q1"  
+            }  
+          }  
+        ],  
+        "responses": {  
+          "200": {  
+            "description": "JSON structure containing the XBRL frames data.",  
+            "content": {  
+              "application/json": {  
+                "schema": {  
+                  "type": "object"  
+                }  
+              }  
+            }  
+          }  
+        }  
+      }  
+    }  
+  },  
+  "components": {  
+    "schemas": {}  
+  }  
+}  
