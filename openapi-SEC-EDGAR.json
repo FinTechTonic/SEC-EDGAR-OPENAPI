@@ -42,6 +42,15 @@
               }  
             }  
           }  
+        },  
+        "headers": {  
+          "User-Agent": {  
+            "description": "Declare your user agent in the request headers.",  
+            "schema": {  
+              "type": "string",  
+              "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          }  
         }  
       }  
     },  
@@ -92,6 +101,15 @@
               }  
             }  
           }  
+        },  
+        "headers": {  
+          "User-Agent": {  
+            "description": "Declare your user agent in the request headers.",  
+            "schema": {  
+              "type": "string",  
+              "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          }  
         }  
       }  
     },  
@@ -120,6 +138,15 @@
                   "type": "object"  
                 }  
               }  
+            }  
+          }  
+        },  
+        "headers": {  
+          "User-Agent": {  
+            "description": "Declare your user agent in the request headers.",  
+            "schema": {  
+              "type": "string",  
+              "example": "Sample Company Name AdminContact@samplecompany.com"  
             }  
           }  
         }  
@@ -182,11 +209,24 @@
               }  
             }  
           }  
+        },  
+        "headers": {  
+          "User-Agent": {  
+            "description": "Declare your user agent in the request headers.",  
+            "schema": {  
+              "type": "string",  
+              "example": "Sample Company Name AdminContact@samplecompany.com"  
+            }  
+          }  
         }  
       }  
     }  
   },  
   "components": {  
     "schemas": {}  
+  },  
+  "x-rateLimit": {  
+    "description": "The maximum access rate is 10 requests per second.",  
+    "value": 10  
   }  
 }  
